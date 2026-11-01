@@ -1,0 +1,28 @@
+stratum,n_pathogenic,n_common,scores,key,auroc,lo,hi
+pure missense (no other consequence),2247,236,full-sample OOF,HyenaDNA|reference-only,0.6354725321143823,0.5956060057477767,0.6735044560355427
+pure missense (no other consequence),2247,236,full-sample OOF,HyenaDNA|delta (alt-ref),0.5272755387597776,0.4869807106273525,0.5630410698256809
+pure missense (no other consequence),2247,236,full-sample OOF,DNABERT-2|reference-only,0.7486686580223726,0.7110676759219449,0.7821017005725147
+pure missense (no other consequence),2247,236,full-sample OOF,DNABERT-2|delta (alt-ref),0.4927417347423684,0.4546558311270017,0.5319852552933101
+pure missense (no other consequence),2247,236,full-sample OOF,4-mer|reference-only,0.5521354272740302,0.5115803651573096,0.5909680421352764
+pure missense (no other consequence),2247,236,full-sample OOF,4-mer|delta (alt-ref),0.4598400503873338,0.4223395318051187,0.5014985611700723
+pure missense (no other consequence),2247,236,full-sample OOF,meta: raw terms + substitution type,0.5817379858643917,0.5452831883188884,0.6199662167258794
+pure missense (no other consequence),2247,236,trained within stratum,HyenaDNA|reference-only,0.6491574453320058,0.6092858745747626,0.6878837979829981
+pure missense (no other consequence),2247,236,trained within stratum,DNABERT-2|reference-only,0.7210480263703771,0.6825183106665762,0.7565953757552443
+non-coding-transcript flagged,424,1897,full-sample OOF,HyenaDNA|reference-only,0.5850548532439502,0.5558567213872948,0.6139531696024507
+non-coding-transcript flagged,424,1897,full-sample OOF,HyenaDNA|delta (alt-ref),0.5091902805820511,0.4778628246188122,0.5401590831103729
+non-coding-transcript flagged,424,1897,full-sample OOF,DNABERT-2|reference-only,0.633264041535294,0.6067762467550551,0.661783936404054
+non-coding-transcript flagged,424,1897,full-sample OOF,DNABERT-2|delta (alt-ref),0.502232919903323,0.4721777371917924,0.5324993037666226
+non-coding-transcript flagged,424,1897,full-sample OOF,4-mer|reference-only,0.5534172626092838,0.5228203543827892,0.5833500139246676
+non-coding-transcript flagged,424,1897,full-sample OOF,4-mer|delta (alt-ref),0.5118769954545906,0.48314098850220305,0.5419222475159388
+non-coding-transcript flagged,424,1897,full-sample OOF,meta: raw terms + substitution type,1.0,1.0,1.0
+non-coding-transcript flagged,424,1897,trained within stratum,HyenaDNA|reference-only,0.5614761639530141,0.5338488154086393,0.591124889348624
+non-coding-transcript flagged,424,1897,trained within stratum,DNABERT-2|reference-only,0.5597542296177679,0.5276380096179668,0.586827109089824
+other annotated (neither),329,867,full-sample OOF,HyenaDNA|reference-only,0.6039902819701097,0.5694187061558039,0.6403002878247669
+other annotated (neither),329,867,full-sample OOF,HyenaDNA|delta (alt-ref),0.5590181003565381,0.521920257464688,0.593524994478392
+other annotated (neither),329,867,full-sample OOF,DNABERT-2|reference-only,0.6107950063629958,0.5773560613231525,0.6438672465231399
+other annotated (neither),329,867,full-sample OOF,DNABERT-2|delta (alt-ref),0.5649919542284999,0.5270440466549573,0.6012555084612067
+other annotated (neither),329,867,full-sample OOF,4-mer|reference-only,0.5490792061505453,0.5143989510697896,0.5860192888169035
+other annotated (neither),329,867,full-sample OOF,4-mer|delta (alt-ref),0.5628586854015699,0.523310782385545,0.6037727481480702
+other annotated (neither),329,867,full-sample OOF,meta: raw terms + substitution type,0.9763447306331794,0.9691151053663017,0.9835150205263582
+other annotated (neither),329,867,trained within stratum,HyenaDNA|reference-only,0.5743909578850314,0.53856352303124,0.610301216857206
+other annotated (neither),329,867,trained within stratum,DNABERT-2|reference-only,0.5663241516882097,0.5305890065663311,0.6050405268490374

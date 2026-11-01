@@ -1,0 +1,13 @@
+subset,n_pathogenic,n_common,features,auroc,lo,hi
+All variants,3000,3000,Annotation: consequence terms + substitution,0.9675447222222222,0.9632140069444444,0.9720842555555556
+All variants,3000,3000,"DNABERT-2, reference-only",0.6814103333333333,0.6684866611111111,0.6943062972222221
+All variants,3000,3000,"DNABERT-2, variant ($\Delta$)",0.5071657777777778,0.49211239444444443,0.5218847416666667
+All variants,3000,3000,"HyenaDNA, reference-only",0.6174374444444445,0.6035620555555555,0.632302511111111
+Pathogenic with assertion criteria,1763,3000,Annotation: consequence terms + substitution,0.9678005294006429,0.9628156858574399,0.9719121998487427
+Pathogenic with assertion criteria,1763,3000,"DNABERT-2, reference-only",0.6897944791075817,0.6752444412932502,0.7048103091321611
+Pathogenic with assertion criteria,1763,3000,"DNABERT-2, variant ($\Delta$)",0.5124237095859331,0.4952374503686897,0.5300130553979959
+Pathogenic with assertion criteria,1763,3000,"HyenaDNA, reference-only",0.6139088674607677,0.5976523823028929,0.6285794384571752
+Pathogenic multi-submitter/expert,554,3000,Annotation: consequence terms + substitution,0.9646308664259928,0.9593481723826714,0.9694456302647413
+Pathogenic multi-submitter/expert,554,3000,"DNABERT-2, reference-only",0.6888868832731648,0.6666395306859205,0.7106363267148015
+Pathogenic multi-submitter/expert,554,3000,"DNABERT-2, variant ($\Delta$)",0.4913838748495788,0.46360688929001204,0.5184814831528279
+Pathogenic multi-submitter/expert,554,3000,"HyenaDNA, reference-only",0.6202725631768953,0.5935868983152828,0.6436391395908544

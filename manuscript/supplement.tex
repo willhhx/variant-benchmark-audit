@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\captionsetup[table]{name=Supplementary Table,labelsep=colon}
+\renewcommand{\thetable}{S\arabic{table}}
+\input{generated/macros_leakage.tex}
+\newcommand{\tbd}[1]{\textcolor{red}{\textbf{[#1]}}}
+\newcommand{\Dlt}{\Delta}
+
+\title{\textbf{Supplementary Material}\\[4pt]\large When Accuracy Is Not Understanding: Auditing Annotation Shortcuts in a ClinVar--gnomAD Benchmark for AI-Assisted Variant Interpretation}
+\date{}
+\begin{document}
+\maketitle
+
+\section*{Contents}
+Table~S1 fold-level AUROC; Table~S2 probe regularisation; Table~S3 ClinVar review-status sensitivity; Table~S4 all annotation strata; Table~S5 incremental value of the reference-only score; Table~S6 consequence-term counts; Section~S7 reproducibility details and analyses not included.
+
+\begin{table}[h]
+\centering\small
+\input{generated/tab_folds.tex}
+\caption{AUROC within each held-out chromosome group (pooled out-of-fold predictions split by group). Groups follow the definitions of Feng et al.\ (2025): group 1 = chr3, 6, 9, 12, 16, 18, 19, 21; group 2 = chr2, 5, 11, 14, 17, 20, 22, X; group 3 = chr1, 4, 7, 8, 10, 13, 15.}
+\end{table}
+
+\begin{table}[h]
+\centering\small
+\input{generated/tab_csweep.tex}
+\caption{AUROC across L2 regularisation strengths $C$ (inverse regularisation; larger is weaker). The main text uses $C=1$, fixed in advance and identical for all feature sources.}
+\end{table}
+
+\begin{table}[h]
+\centering\small
+\resizebox{\linewidth}{!}{\input{generated/tab_review.tex}}
+\caption{AUROC after restricting the pathogenic class by ClinVar review status (all common variants retained). The first subset is the full sample. Annotation-only AUROC is essentially unchanged, so the findings are not driven by the weakest assertions.}
+\end{table}
+
+\begin{table}[h]
+\centering\footnotesize
+\resizebox{\linewidth}{!}{\input{generated/tab_strata.tex}}
+\caption{All annotation strata. ``Annotation'' within the non-coding-transcript stratum reaches AUROC 1.000 because the two classes spell the non-coding term differently; this is a vocabulary artefact, not a biological signal. Strata are defined from the consequence string: plain missense; any non-coding-transcript term; other.}
+\end{table}
+
+\begin{table}[h]
+\centering\small
+\input{generated/tab_incremental.tex}
+\caption{Does the reference-only embedding score add information beyond annotation (consequence terms plus substitution type)? Gain is the paired-bootstrap difference in AUROC between the combined model and annotation alone. The gains are statistically distinguishable from zero for DNABERT-2 and HyenaDNA but small.}
+\end{table}
+
+\begin{table}[h]
+\centering\small
+\input{generated/tab_crosstab_full.tex}
+\caption{The twenty most frequent consequence terms (counts of variants carrying the term) in the full annotation table. A variant can carry several terms.}
+\end{table}
+
+\section*{S7. Reproducibility details and analyses not included}
+\textbf{Software and settings.} Python with numpy, pandas, SciPy, scikit-learn (logistic regression, L-BFGS; StandardScaler fitted on training folds) and matplotlib; random seed 42 for sampling, resampling and probes. \tbd{record exact package versions}.
+
+\textbf{Files.} The analysis folder contains \texttt{scripts/01\_leakage\_main.py} (annotation-only and embedding probes, stratified analysis, incremental value, label-shuffle control), \texttt{02\_crosstab\_and\_alphagenome.py} (vocabulary cross-tabulation; AlphaGenome subset), \texttt{03\_shared\_vocab\_and\_figure.py} (shared-vocabulary probe; Figure~2), \texttt{04\_make\_manuscript\_assets.py} and \texttt{05\_extra\_assets.py} (robustness analyses and every table and number in the manuscript), and \texttt{build\_manuscript.sh}. Result tables are in \texttt{results/}. Per-variant out-of-fold scores are in \texttt{results/oof\_scores\_main.csv}.
+
+\textbf{Data sources.} Variants and annotation: public benchmark of Feng et al.\ (2025) and its annotation table. Embeddings: DNABERT-2, HyenaDNA and a 4-mer baseline (501-bp window, \NPerClass{} variants per class, seed 42), and AlphaGenome embeddings for the \AgN{}-variant upstream test split. All embeddings were computed before this analysis.
+
+\textbf{Counts.} The annotation table contains \TabNPath{} pathogenic and \TabNCommon{} unique common variants after removing duplicate coordinates; this differs by a few rows from the \(39{,}637\) variants in the source sequence table. The sampled \NSample{} variants were all matched to annotation.
+
+\textbf{Analyses not included.} An earlier version of the project compared seven models with pairwise significance tests and an embedding-geometry analysis (principal components, silhouette, $k$-nearest-neighbour purity, centred kernel alignment, UMAP). These were removed because the study's question concerns benchmark construction, not model ranking, and because variant-specific results were uniformly close to chance. The relevant models were not rerun.
+
+\textbf{Not done.} Pooling at the variant position, intermediate-layer analyses, longer-window replication, gene-held-out evaluation and any ancestry-stratified analysis were not performed.
+
+\end{document}

@@ -1,0 +1,36 @@
+\begin{tabular}{llcc}\toprule
+Stratum (pathogenic / common) & Feature source & AUROC (95\% CI) & Probe trained\\\midrule
+\multicolumn{4}{l}{\emph{Plain missense only} (2,247 / 236)}\\
+\quad & HyenaDNA reference-only & 0.635 (0.596--0.674) & all variants\\
+\quad & HyenaDNA variant ($\Delta$) & 0.527 (0.487--0.563) & all variants\\
+\quad & DNABERT-2 reference-only & 0.749 (0.711--0.782) & all variants\\
+\quad & DNABERT-2 variant ($\Delta$) & 0.493 (0.455--0.532) & all variants\\
+\quad & 4-mer reference-only & 0.552 (0.512--0.591) & all variants\\
+\quad & 4-mer variant ($\Delta$) & 0.460 (0.422--0.501) & all variants\\
+\quad & Annotation & 0.582 (0.545--0.620) & all variants\\
+\quad & HyenaDNA reference-only & 0.649 (0.609--0.688) & within stratum\\
+\quad & DNABERT-2 reference-only & 0.721 (0.683--0.757) & within stratum\\
+\midrule
+\multicolumn{4}{l}{\emph{Non-coding-transcript flagged} (424 / 1,897)}\\
+\quad & HyenaDNA reference-only & 0.585 (0.556--0.614) & all variants\\
+\quad & HyenaDNA variant ($\Delta$) & 0.509 (0.478--0.540) & all variants\\
+\quad & DNABERT-2 reference-only & 0.633 (0.607--0.662) & all variants\\
+\quad & DNABERT-2 variant ($\Delta$) & 0.502 (0.472--0.532) & all variants\\
+\quad & 4-mer reference-only & 0.553 (0.523--0.583) & all variants\\
+\quad & 4-mer variant ($\Delta$) & 0.512 (0.483--0.542) & all variants\\
+\quad & Annotation & 1.000 (1.000--1.000) & all variants\\
+\quad & HyenaDNA reference-only & 0.561 (0.534--0.591) & within stratum\\
+\quad & DNABERT-2 reference-only & 0.560 (0.528--0.587) & within stratum\\
+\midrule
+\multicolumn{4}{l}{\emph{Other annotated} (329 / 867)}\\
+\quad & HyenaDNA reference-only & 0.604 (0.569--0.640) & all variants\\
+\quad & HyenaDNA variant ($\Delta$) & 0.559 (0.522--0.594) & all variants\\
+\quad & DNABERT-2 reference-only & 0.611 (0.577--0.644) & all variants\\
+\quad & DNABERT-2 variant ($\Delta$) & 0.565 (0.527--0.601) & all variants\\
+\quad & 4-mer reference-only & 0.549 (0.514--0.586) & all variants\\
+\quad & 4-mer variant ($\Delta$) & 0.563 (0.523--0.604) & all variants\\
+\quad & Annotation & 0.976 (0.969--0.984) & all variants\\
+\quad & HyenaDNA reference-only & 0.574 (0.539--0.610) & within stratum\\
+\quad & DNABERT-2 reference-only & 0.566 (0.531--0.605) & within stratum\\
+\midrule
+\bottomrule\end{tabular}
