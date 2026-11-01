@@ -40,8 +40,9 @@ The pipeline was rerun end to end from a clean copy of this repository and repro
 - The 2-kb/6-kb/100-kb sequence tables of the upstream benchmark (too large; see ChongWuLab/dna_foundation_benchmark).
 
 ## To do before submission
-Red `[...]` placeholders in the PDF: authors/affiliations, repository URL, `alphagenome-pytorch` version and checkpoint source, declarations, package versions (supplement).
-Verify reference details (see the header of `manuscript/refs.bib`) and the journal's name, deadline and format.
+- Add the AlphaGenome checkpoint source (the file `model_all_folds.safetensors`) to the Methods once confirmed.
+- Verify reference details (see the header of `manuscript/refs.bib`).
+- Confirm the journal's deadline and submission format.
 
 ## Citations for the AlphaGenome run
 AlphaGenome: Avsec et al., *Nature* 649(8099):1206-1218 (2026). PyTorch port: `alphagenome-pytorch` (https://github.com/genomicsxai/alphagenome-pytorch; Apache-2.0; model parameters and outputs remain subject to the Google DeepMind AlphaGenome Model Terms).
