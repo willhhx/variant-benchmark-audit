@@ -57,7 +57,7 @@ Table~S1 fold-level AUROC; Table~S2 probe regularisation; Table~S3 ClinVar revie
 \end{table}
 
 \section*{S7. Reproducibility details and analyses not included}
-\textbf{Software and settings.} Python with numpy, pandas, SciPy, scikit-learn (logistic regression, L-BFGS; StandardScaler fitted on training folds) and matplotlib; random seed 42 for sampling, resampling and probes. \tbd{record exact package versions}.
+\textbf{Software and settings.} Python with numpy, pandas, SciPy, scikit-learn (logistic regression, L-BFGS; StandardScaler fitted on training folds) and matplotlib; random seed 42 for sampling, resampling and probes. Versions: Python 3.13, NumPy 2.5.3, pandas 3.0.5, SciPy 1.18.1, scikit-learn 1.9.1, Matplotlib 3.11.2; \texttt{alphagenome-pytorch} 0.3.1 (embeddings computed earlier).
 
 \textbf{Files.} The analysis folder contains \texttt{scripts/01\_leakage\_main.py} (annotation-only and embedding probes, stratified analysis, incremental value, label-shuffle control), \texttt{02\_crosstab\_and\_alphagenome.py} (vocabulary cross-tabulation; AlphaGenome subset), \texttt{03\_shared\_vocab\_and\_figure.py} (shared-vocabulary probe; Figure~2), \texttt{04\_make\_manuscript\_assets.py} and \texttt{05\_extra\_assets.py} (robustness analyses and every table and number in the manuscript), and \texttt{build\_manuscript.sh}. Result tables are in \texttt{results/}. Per-variant out-of-fold scores are in \texttt{results/oof\_scores\_main.csv}.
 
