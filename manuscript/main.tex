@@ -6,6 +6,9 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage[authoryear,round]{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\setlength{\bibhang}{0.5in}
+\setlength{\bibsep}{0pt}
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{tikz}
@@ -83,10 +86,10 @@ Variants come from the pathogenic-variant benchmark of \citet{feng2025benchmark}
 To measure how much of the task can be solved without sequence, we trained logistic-regression probes on annotation metadata only: (a)~a single indicator for ``plain missense'' (consequence string exactly \texttt{missense\_variant}); (b)~two harmonised indicators (plain missense; any non-coding-transcript term, ignoring spelling); (c)~one indicator per consequence term as written; (d)~(c) plus the nucleotide substitution type; and (e)~consequence terms observed in at least 1\% of \emph{both} classes in the full annotation table (shared vocabulary). Minor allele frequency and allele counts were never used as features, because they are populated only for the common class and so identify the label by construction.
 
 \subsection{Sequence-embedding probes}
-Each model embedded the identical 501-bp window centred on the variant (reference and alternate alleles); last-layer hidden states were mean-pooled. Models were DNABERT-2 \citep{zhou2024dnabert2}, HyenaDNA \citep{nguyen2023hyenadna} and a 4-mer frequency baseline requiring no pretraining. Two feature sources were evaluated for each model: the reference embedding alone (a context-only control, \citealt{hewitt2019control}), and the difference $\Dlt=e_{\mathrm{alt}}-e_{\mathrm{ref}}$, which isolates the effect of the substitution on the representation. AlphaGenome \citep{avsec2026alphagenome}, run through the \texttt{alphagenome-pytorch} port \citep{bredikhin2026alphagenomepytorch} (version 0.3.1; all-folds weights, file \texttt{model\_all\_folds.safetensors}), was embedded only for the \AgN{} variants of the upstream test split (\AgPath{} pathogenic, \AgCommon{} common), with a 196,608-bp N-padded input and mean pooling; it is analysed separately and never pooled with the other models.
+Each model embedded the identical 501-bp window centred on the variant (reference and alternate alleles); last-layer hidden states were mean-pooled. Models were DNABERT-2 \citep{zhou2024dnabert2}, HyenaDNA \citep{nguyen2023hyenadna} and a 4-mer frequency baseline requiring no pretraining. Two feature sources were evaluated for each model: the reference embedding alone (a context-only control, \citealp{hewitt2019control}), and the difference $\Dlt=e_{\mathrm{alt}}-e_{\mathrm{ref}}$, which isolates the effect of the substitution on the representation. AlphaGenome \citep{avsec2026alphagenome}, run through the \texttt{alphagenome-pytorch} port \citep{bredikhin2026alphagenomepytorch} (version 0.3.1; all-folds weights, file \texttt{model\_all\_folds.safetensors}), was embedded only for the \AgN{} variants of the upstream test split (\AgPath{} pathogenic, \AgCommon{} common), with a 196,608-bp N-padded input and mean pooling; it is analysed separately and never pooled with the other models.
 
 \subsection{Probe and evaluation}
-Features were standardised with training-fold statistics and classified with L2-regularised logistic regression ($C=1$; scikit-learn, \citealt{pedregosa2011sklearn}), identically for every feature source. Variants were held out by chromosome group (three groups as in \citealt{feng2025benchmark}), so linked neighbouring variants never straddle training and test; out-of-fold predictions were pooled. For the AlphaGenome subset, which lies entirely on chromosome 8, five contiguous position blocks were used instead; this limits but does not remove linkage between folds. Uncertainty was quantified by class-stratified bootstrap (1,000 resamples; \citealt{efron1993bootstrap}) and, as a sensitivity analysis, by resampling whole chromosomes. A label-shuffling control (20 permutations) checked the pipeline against chance.
+Features were standardised with training-fold statistics and classified with L2-regularised logistic regression ($C=1$; scikit-learn, \citealp{pedregosa2011sklearn}), identically for every feature source. Variants were held out by chromosome group (three groups as in \citealp{feng2025benchmark}), so linked neighbouring variants never straddle training and test; out-of-fold predictions were pooled. For the AlphaGenome subset, which lies entirely on chromosome 8, five contiguous position blocks were used instead; this limits but does not remove linkage between folds. Uncertainty was quantified by class-stratified bootstrap (1,000 resamples; \citealp{efron1993bootstrap}) and, as a sensitivity analysis, by resampling whole chromosomes. A label-shuffling control (20 permutations) checked the pipeline against chance.
 
 \subsection{Stratified and incremental analyses}
 To remove most of the annotation difference, we repeated the evaluation within strata defined by consequence annotation: plain missense, non-coding-transcript flagged, and other. Scores were evaluated either from the probe trained on all variants or from a probe trained and tested within the stratum. To test whether sequence adds information beyond annotation, we compared an annotation-only model with the same model plus the out-of-fold reference-only score (paired bootstrap of the AUROC difference). Sensitivity to ClinVar label quality used the review status (assertion criteria provided; multiple submitters or expert panel), keeping all common variants.
@@ -190,7 +193,6 @@ On a published pathogenic-versus-common missense benchmark, annotation metadata 
 \section*{Data and code availability}
 Variants derive from the public benchmark of \citet{feng2025benchmark}. Code, per-variant out-of-fold scores and all result tables are available at \url{https://github.com/willhhx/variant-benchmark-audit}.
 
-\bibliographystyle{plainnat}
-\bibliography{refs}
+\input{apa_refs}
 
 \end{document}
