@@ -36,13 +36,8 @@ Run in this order: 04 rewrites the macro file and 05 appends to it. Runtime is a
 The pipeline was rerun end to end from a clean copy of this repository and reproduced every result table and manuscript macro exactly (seed 42; scikit-learn 1.9.1, NumPy 2.5.3, pandas 3.0.5, SciPy 1.18.1, Matplotlib 3.11.2).
 
 ## Related resources
-- Embeddings for DNABERT-2, HyenaDNA, AlphaGenome and the 4-mer baseline are included, so the full analysis runs without any model weights or extraction code. They were computed earlier in the HMS DNA-foundation-model benchmarking project.
+- Embeddings for DNABERT-2, HyenaDNA, AlphaGenome and the 4-mer baseline are included, so the full analysis runs without any model weights or extraction code.
 - The full 2-kb/6-kb/100-kb sequence tables of the upstream benchmark are available at ChongWuLab/dna_foundation_benchmark.
-
-## To do before submission
-- Add the AlphaGenome checkpoint source (the file `model_all_folds.safetensors`) to the Methods once confirmed.
-- Verify reference details (see the header of `manuscript/refs.bib`).
-- Confirm the journal's deadline and submission format.
 
 ## Citations for the AlphaGenome run
 AlphaGenome: Avsec et al., *Nature* 649(8099):1206-1218 (2026). PyTorch port: `alphagenome-pytorch` (https://github.com/genomicsxai/alphagenome-pytorch; Apache-2.0; model parameters and outputs remain subject to the Google DeepMind AlphaGenome Model Terms).
