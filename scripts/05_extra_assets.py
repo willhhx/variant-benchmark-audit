@@ -20,7 +20,7 @@ with open(G + "tab_strata_pure.tex", "w") as f:
     for k in order:
         for sc in ["full-sample OOF", "trained within stratum"]:
             r = p[(p.key == k) & (p.scores == sc)]
-            if len(r): r = r.iloc[0]; f.write(f"{nice[k]} & {'all 6,000 variants' if sc.startswith('full') else 'plain-missense variants only'} & {r.auroc:.3f} ({r.lo:.3f}--{r.hi:.3f})\\\\\n")
+            if len(r): r = r.iloc[0]; f.write(f"{nice[k]} & {'all 6,000 variants' if sc.startswith('full') else 'plain-missense variants only'} & {r.auroc:.3f} ({r.lo:.3f}-{r.hi:.3f})\\\\\n")
     f.write("\\bottomrule\\end{tabular}\n")
 tf = pd.read_csv(R + "main_with_cluster_ci_and_folds.csv")
 with open(G + "tab_folds.tex", "w") as f:

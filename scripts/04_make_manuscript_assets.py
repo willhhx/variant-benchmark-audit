@@ -122,12 +122,12 @@ with open(G + "macros_leakage.tex", "w") as f:
 json.dump(M, open(R + "manuscript_numbers.json", "w"), indent=1)
 
 # ---------- LaTeX tables ----------
-def ci(a, lo, hi): return f"{a:.3f} ({lo:.3f}--{hi:.3f})"
+def ci(a, lo, hi): return f"{a:.3f} ({lo:.3f}-{hi:.3f})"
 with open(G + "tab_main.tex", "w") as f:
     f.write("\\begin{tabular}{lcc}\\toprule\nFeature source & AUROC (95\\% CI) & Chromosome-cluster 95\\% CI\\\\\\midrule\n")
     for i, r in tabF.iterrows():
         if i == 3: f.write("\\midrule\n")
-        f.write(f"{r['name']} & {ci(r.auroc, r.lo, r.hi)} & {r.clo:.3f}--{r.chi:.3f}\\\\\n")
+        f.write(f"{r['name']} & {ci(r.auroc, r.lo, r.hi)} & {r.clo:.3f}-{r.chi:.3f}\\\\\n")
     f.write("\\bottomrule\\end{tabular}\n")
 with open(G + "tab_strata.tex", "w") as f:
     f.write("\\begin{tabular}{llcc}\\toprule\nStratum (pathogenic / common) & Feature source & AUROC (95\\% CI) & Probe trained\\\\\\midrule\n")
@@ -162,10 +162,10 @@ cs = pd.read_csv(R + "c_sweep_all.csv")
 with open(G + "tab_csweep.tex", "w") as f:
     f.write("\\begin{tabular}{lrcc}\\toprule\nFeature source & $C$ & Reference-only AUROC & Variant ($\\Delta$) AUROC\\\\\\midrule\n")
     for _, r in cs.iterrows():
-        a = "--" if np.isnan(r.reference_only) else f"{r.reference_only:.3f}"; f.write(f"{r.model} & {r.C:g} & {a} & {r.delta:.3f}\\\\\n")
+        a = "-" if np.isnan(r.reference_only) else f"{r.reference_only:.3f}"; f.write(f"{r.model} & {r.C:g} & {a} & {r.delta:.3f}\\\\\n")
     f.write("\\bottomrule\\end{tabular}\n")
 with open(G + "tab_incremental.tex", "w") as f:
     f.write("\\begin{tabular}{lccc}\\toprule\nModel & Annotation alone & + reference-only score & Gain (95\\% CI)\\\\\\midrule\n")
-    for k, r in inc.iterrows(): f.write(f"{k} & {r.auroc_meta:.3f} & {r.auroc_meta_plus_ref:.3f} & {r.gain:.3f} ({r.gain_lo:.3f}--{r.gain_hi:.3f})\\\\\n")
+    for k, r in inc.iterrows(): f.write(f"{k} & {r.auroc_meta:.3f} & {r.auroc_meta_plus_ref:.3f} & {r.gain:.3f} ({r.gain_lo:.3f}-{r.gain_hi:.3f})\\\\\n")
     f.write("\\bottomrule\\end{tabular}\n")
 print(tabF.round(3).to_string()); print(rev.round(3).to_string()); print(cs.round(3).to_string()); print(len(M), "macros")

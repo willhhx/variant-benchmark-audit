@@ -29,7 +29,7 @@ a = ax[0]
 for i, (n, r) in enumerate(bars):
     a.bar(i, r["auroc"] - 0.5, bottom=0.5, color=col[i], width=0.7)
     a.errorbar(i, r["auroc"], yerr=[[r["auroc"] - r["lo"]], [r["hi"] - r["auroc"]]], color="k", lw=1, capsize=2)
-a.axhline(0.5, color="k", lw=0.8, ls="--"); a.set_ylim(0.4, 1.0); a.set_xticks(range(len(bars)))
+a.axhline(0.5, color="k", lw=0.8, ls="-"); a.set_ylim(0.4, 1.0); a.set_xticks(range(len(bars)))
 a.set_xticklabels([b[0] for b in bars], rotation=60, ha="right", fontsize=7.5); a.set_ylabel("AUROC (leave-chromosome-group-out; 95% CI)")
 a.set_title("A. Annotation alone vs. sequence embeddings (n = 6,000)", fontsize=10, loc="left")
 b = ax[1]; sub = strat[(strat.scores == "full-sample OOF") & (strat.stratum.str.startswith("pure"))]
@@ -39,7 +39,7 @@ for mod in ["DNABERT-2", "HyenaDNA", "4-mer"]:
         r = sub[sub.key == f"{mod}|{f}"].iloc[0]
         b.bar(k, r.auroc - 0.5, bottom=0.5, color=c, width=0.7); b.errorbar(k, r.auroc, yerr=[[r.auroc - r.lo], [r.hi - r.auroc]], color="k", lw=1, capsize=2)
         labs.append(f"{mod}\n{'ref-only' if f.startswith('ref') else 'delta'}"); k += 1
-b.axhline(0.5, color="k", lw=0.8, ls="--"); b.set_ylim(0.4, 1.0); b.set_xticks(range(k)); b.set_xticklabels(labs, rotation=60, ha="right", fontsize=7.5)
+b.axhline(0.5, color="k", lw=0.8, ls="-"); b.set_ylim(0.4, 1.0); b.set_xticks(range(k)); b.set_xticklabels(labs, rotation=60, ha="right", fontsize=7.5)
 n1, n0 = int(sub.n_pathogenic.iloc[0]), int(sub.n_common.iloc[0])
 b.set_title(f"B. Plain-missense stratum only ({n1:,} pathogenic, {n0} common)", fontsize=10, loc="left")
 plt.tight_layout(); plt.savefig(FIG + "fig_leakage_main.pdf"); plt.savefig(FIG + "fig_leakage_main.png", dpi=200)
