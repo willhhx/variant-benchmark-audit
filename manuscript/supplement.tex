@@ -61,11 +61,11 @@ Table~S1 fold-level AUROC; Table~S2 probe regularisation; Table~S3 ClinVar revie
 
 \textbf{Files.} The analysis folder contains \texttt{scripts/01\_leakage\_main.py} (annotation-only and embedding probes, stratified analysis, incremental value, label-shuffle control), \texttt{02\_crosstab\_and\_alphagenome.py} (vocabulary cross-tabulation; AlphaGenome subset), \texttt{03\_shared\_vocab\_and\_figure.py} (shared-vocabulary probe; Figure~2), \texttt{04\_make\_manuscript\_assets.py} and \texttt{05\_extra\_assets.py} (robustness analyses and every table and number in the manuscript), and \texttt{build\_manuscript.sh}. Result tables are in \texttt{results/}. Per-variant out-of-fold scores are in \texttt{results/oof\_scores\_main.csv}.
 
-\textbf{Data sources.} Variants and annotation: public benchmark of Feng et al.\ (2025) and its annotation table. Embeddings: DNABERT-2, HyenaDNA and a 4-mer baseline (501-bp window, \NPerClass{} variants per class, seed 42), and AlphaGenome embeddings for the \AgN{}-variant upstream test split. All embeddings were computed before this analysis.
+\textbf{Data sources.} Variants and annotation: public benchmark of Feng et al.\ (2025) and its annotation table. Embeddings: DNABERT-2, HyenaDNA and a 4-mer baseline (501-bp window, \NPerClass{} variants per class, seed 42), and AlphaGenome embeddings for the \AgN{}-variant upstream test split.
 
 \textbf{Counts.} The annotation table contains \TabNPath{} pathogenic and \TabNCommon{} unique common variants after removing duplicate coordinates; this differs by a few rows from the \(39{,}637\) variants in the source sequence table. The sampled \NSample{} variants were all matched to annotation.
 
-\textbf{Analyses not included.} An earlier version of the project compared seven models with pairwise significance tests and an embedding-geometry analysis (principal components, silhouette, $k$-nearest-neighbour purity, centred kernel alignment, UMAP). These were removed because the study's question concerns benchmark construction, not model ranking, and because variant-specific results were uniformly close to chance. The relevant models were not rerun.
+\textbf{Analyses not included.} An earlier version of the project compared seven models with pairwise significance tests and an embedding-geometry analysis (principal components, silhouette, $k$-nearest-neighbour purity, centred kernel alignment, UMAP). These were removed because the study's question concerns benchmark construction, not model ranking, and because variant-specific results were uniformly close to chance.
 
 \textbf{Not done.} Pooling at the variant position, intermediate-layer analyses, longer-window replication, gene-held-out evaluation and any ancestry-stratified analysis were not performed.
 
