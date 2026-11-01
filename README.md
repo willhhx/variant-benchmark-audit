@@ -35,9 +35,9 @@ python 01_leakage_main.py && python 02_crosstab_and_alphagenome.py && python 03_
 Run in this order: 04 rewrites the macro file and 05 appends to it. Runtime is a few minutes on a laptop CPU; no GPU and no model download are needed because all embeddings are included.
 The pipeline was rerun end to end from a clean copy of this repository and reproduced every result table and manuscript macro exactly (seed 42; scikit-learn 1.9.1, NumPy 2.5.3, pandas 3.0.5, SciPy 1.18.1, Matplotlib 3.11.2).
 
-## Not in this repository
-- Model weights and embedding-extraction code for DNABERT-2, HyenaDNA and AlphaGenome: embeddings were computed earlier in the HMS DNA-foundation-model benchmarking project (a separate repository); no extraction was repeated for this study.
-- The 2-kb/6-kb/100-kb sequence tables of the upstream benchmark (too large; see ChongWuLab/dna_foundation_benchmark).
+## Related resources
+- Embeddings for DNABERT-2, HyenaDNA, AlphaGenome and the 4-mer baseline are included, so the full analysis runs without any model weights or extraction code. They were computed earlier in the HMS DNA-foundation-model benchmarking project.
+- The full 2-kb/6-kb/100-kb sequence tables of the upstream benchmark are available at ChongWuLab/dna_foundation_benchmark.
 
 ## To do before submission
 - Add the AlphaGenome checkpoint source (the file `model_all_folds.safetensors`) to the Methods once confirmed.
